@@ -39,6 +39,24 @@ Show the widgets
     $rk_mostrar_tour_single = $rk_cat[0]->cat_name;
     $current_post=wp_get_single_post();
     
-    
+# Default front-page file php
+add code:
+/* Template Name: Example Template */ 
+
+#Obtain the title of post or page
+<h2><?php the_title(); ?></h2>
+
+#Obtain the post on WP
+<?php
+		if ( have_posts() ) {
+
+			// Load posts loop.
+			while ( have_posts() ) {
+				the_post();
+			}
+
+		};
+?>
+
     
     
