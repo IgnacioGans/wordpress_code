@@ -1,4 +1,5 @@
 # wordpress_sql
+UPDATE `wp_users` SET `user_pass`= MD5('yourpassword') WHERE `user_login`='yourusername';
 
 UPDATE wp_options
 SET option_value = 'http://new-domain-name.com'
