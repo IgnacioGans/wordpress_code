@@ -48,7 +48,7 @@ add code:
 <h2><?php the_title(); ?></h2>
 
 #Obtain the post on WP
-<?php
+#<?php
 		if ( have_posts() ) {
 
 			// Load posts loop.
@@ -58,6 +58,21 @@ add code:
 
 		};
 ?>
+/**
+ * Register Navigation
+ */
+    function register_my_menu() {
+  register_nav_menu('header-menu',__( 'Header Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
+/**
+ * Register Custom Navigation Walker (Bootstrap)
+ */
+function register_navwalker(){
+	require_once get_template_directory() . '/php-bootstrap/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
+	
 
-    
+$pagename = get_query_var('pagename');
     
